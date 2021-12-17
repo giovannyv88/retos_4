@@ -1,0 +1,96 @@
+body{
+    background-image: url("fondo.jpg");
+    background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      background-size: cover;
+      margin: 0;
+}
+
+
+
+footer{
+    position: fixed;
+    bottom: 0;
+    background-color: white ;
+    height: 5em;
+    text-align: center;
+    width: 100%;
+    line-height: 5;
+    font-size: 1em;
+  }
+
+  .contenedor1{
+
+    width: 30%;
+    height: 40em;
+    background-color: rgba(241, 241, 241, 0.603);
+    margin-top: 7%;
+    margin-left: 34%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+
+  }
+
+  .contenedor2{
+
+    width: 30%;
+    height: auto;
+    background-color: rgba(241, 241, 241, 0.603);
+    margin-top: 7%;
+    margin-left: 34%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+
+  .contenedor3{
+
+    width: 30%;
+    height: auto;
+    background-color: rgba(241, 241, 241, 0.603);
+    margin-top: 7%;
+    margin-left: 34%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+
+
+h4{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-success{
+
+margin-left: 34%;
+}
+
+.form-control{
+width: 80%;
+margin-left: 10%;
+height: 3em;
+
+}
+
+.table-striped{
+  width: 50%;
+  height: auto;
+  margin-left: 25%;
+  margin-top: 4%;
+}
+
+h3{
+  text-align: center;
+  font-family: 'Gill Sans';
+  color: whitesmoke;
+}
+  
+
+  
+
+  
+
+  
+
+
+
+
