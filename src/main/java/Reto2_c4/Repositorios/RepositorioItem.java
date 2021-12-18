@@ -44,6 +44,12 @@ public class RepositorioItem {
         crudItem.delete(item);
     }
     
+    public List<TablaProducto> precioMenor(double precio){
+        return crudItem.findByPriceLessThanEqual(precio);
+    }
     
-      
+    public List<TablaProducto> descripcionItem(String descripcion){
+        return crudItem.findByDescriptionLike(descripcion);
+    }
+        
 }

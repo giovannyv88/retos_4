@@ -117,5 +117,8 @@ public class servicioUser {
     }
     
     
-    
+    public List<TablaUser> listaCumpleaños( String mes){
+        return repoUser.listaCumpleaños(mes);
+    }
+     
 }

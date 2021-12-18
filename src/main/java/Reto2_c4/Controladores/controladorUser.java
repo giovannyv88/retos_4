@@ -73,5 +73,10 @@ public class controladorUser {//Clase controlador para la coleccion usuario
     public boolean borrarUsuario(@PathVariable("id") int id){//Metodo que me elimina un usuario existente tomando como parametro el id de la clase Tablauser
         return servicioUsuario.borrarUsuario(id);//Me retorna un campo vacion, el usuario se elimino correctamente
     }
+    
+    @GetMapping("/birthday/{month}")
+    public List <TablaUser> listaCumpleaños(@PathVariable("month") String mes){
+        return servicioUsuario.listaCumpleaños(mes);
+    }
 
 }

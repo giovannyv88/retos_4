@@ -8,6 +8,7 @@ package Reto2_c4.Interfaces;
 import Reto2_c4.Modelos.TablaProducto;
 import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 /**
  *
@@ -15,8 +16,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface itemInterfaz extends MongoRepository<TablaProducto, String>{
     
-    public List<TablaProducto> findByPriceLessThanEqual(double salesMan);
+    public List<TablaProducto> findByPriceLessThanEqual(double precio);
     
-    public List<TablaProducto>  findByDescriptionLikeIgnoreCase(String description);
+    @Query("{'description':{'$regex':'?0','$options': 'i'}}")
+    public List<TablaProducto> findByDescriptionLike(String description);
     
 }

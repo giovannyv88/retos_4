@@ -63,4 +63,14 @@ public class ControladorItem {
         return serviItem.borrarItem(referencia);//Crear metodo eliminar
     }
     
+    @GetMapping("/price/{price}")
+    public List<TablaProducto> precioMenor(@PathVariable("price")double precio){
+        return serviItem.precioMenor(precio);
+    }
+    
+    @GetMapping("/description/{description}")
+    public List <TablaProducto> descripcionItem(@PathVariable("description") String descripcion){
+        return serviItem.descripcionItem(descripcion);
+    }
+    
 }

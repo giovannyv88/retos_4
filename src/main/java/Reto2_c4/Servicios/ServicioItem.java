@@ -82,5 +82,13 @@ public class ServicioItem {
             return true;
         }
     }
-
+    
+    public List<TablaProducto> precioMenor (double precio){
+        return repoItem.precioMenor(precio);
+    }
+    
+    public List<TablaProducto> descripcionItem (String descripcion){
+        return repoItem.descripcionItem(descripcion);
+    }
+    
 }

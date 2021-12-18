@@ -25,7 +25,4 @@ public interface pedidoInterfaz extends MongoRepository<TablaPedidos, Integer>{
     
     Optional<TablaPedidos> findTopByOrderByIdDesc();
     
-    public List<TablaPedidos> findBySalesManIdAndRegisterDay(Integer id, Date registerDay);
-    public List<TablaPedidos> findBySalesManId(Integer id);
-      
 }
