@@ -17,14 +17,14 @@ function guardarUser(){
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
         data: JSON.stringify(datos),
-        url:"http://localhost:8080/api/user/new",
+        url:"http://168.138.143.61:8080/api/user/new",
        
         
         success:function(response) {
             console.log(response);
             console.log("Se guardo correctamente");
             alert("Registro guardado");
-            window.location.href= "/paginas/admin.html";
+            window.location.href= "/admin.html";
     
         },
         
@@ -46,7 +46,7 @@ function login(){
 
     $.ajax({
         
-        url: "http://localhost:8080/api/user/"+ email + "/" + password,
+        url: "http://168.138.143.61:8080/api/user/"+ email + "/" + password,
         type: 'GET',
         dataType: 'json',
 

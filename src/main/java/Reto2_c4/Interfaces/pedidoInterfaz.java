@@ -6,6 +6,7 @@
 package Reto2_c4.Interfaces;
 
 import Reto2_c4.Modelos.TablaPedidos;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -23,5 +24,8 @@ public interface pedidoInterfaz extends MongoRepository<TablaPedidos, Integer>{
     List<TablaPedidos> findByStatus (final String estado);
     
     Optional<TablaPedidos> findTopByOrderByIdDesc();
+    
+    public List<TablaPedidos> findBySalesManIdAndRegisterDay(Integer id, Date registerDay);
+    public List<TablaPedidos> findBySalesManId(Integer id);
       
 }

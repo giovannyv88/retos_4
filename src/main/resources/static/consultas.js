@@ -2,7 +2,7 @@
 function infoUser(){
 
     $.ajax({
-        url:"http://localhost:8080/api/user/all",
+        url:"http://168.138.143.61:8080/api/user/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -62,7 +62,7 @@ function guardarItem(){
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
         data: JSON.stringify(datos),
-        url:"http://localhost:8080/api/chocolate/new",
+        url:"http://168.138.143.61:8080/api/chocolate/new",
        
         
         success:function(response) {
@@ -89,7 +89,7 @@ function guardarItem(){
 function infoItem(){
 
     $.ajax({
-        url:"http://localhost:8080/api/chocolate/all",
+        url:"http://168.138.143.61:8080/api/chocolate/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -153,7 +153,7 @@ function guardarPedido(){
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
         data: JSON.stringify(datos),
-        url:"http://localhost:8080/api/order/new",
+        url:"http://168.138.143.61/api/order/new",
        
         
         success:function(response) {
@@ -178,7 +178,7 @@ function guardarPedido(){
 function infoPedido(){
 
     $.ajax({
-        url:"http://localhost:8080/api/order/all",
+        url:"http://168.138.143.61:8080/api/order/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -237,7 +237,7 @@ function actualizarUser(idElemento){
     console.log(datosUser);
     let dataToSend=JSON.stringify(datosUser);
     $.ajax({
-        url:"http://localhost:8080/api/user/update",
+        url:"http://168.138.143.61:8080/api/user/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -275,7 +275,7 @@ function actualizarItem(idElemento){
     console.log(datosItem);
     let dataToSend=JSON.stringify(datosItem);
     $.ajax({
-        url:"http://localhost:8080/api/chocolate/update",
+        url:"http://168.138.143.61:8080/api/chocolate/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -313,7 +313,7 @@ function actualizarOrden(idElemento){
     console.log(datosOrden);
     let dataToSend=JSON.stringify(datosOrden);
     $.ajax({
-        url:"http://localhost:8080/api/order/update",
+        url:"http://168.138.143.61:8080/api/order/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -341,7 +341,7 @@ function cargarItem(idItem){
     $.ajax({
         dataType: 'json', 
         data: {id:idItem},
-        url:"http://localhost:8080/api/chocolate/all",
+        url:"http://168.138.143.61:8080/api/chocolate/all",
         type:'GET',
         success:function(response) {
           console.log(idItem);
@@ -373,7 +373,7 @@ function cargarItem(idItem){
     $.ajax({
         dataType: 'json', 
         data: {id:idUser},
-        url:"http://localhost:8080/api/user/all",
+        url:"http://168.138.143.61:8080/api/user/all",
         type:'GET',
         success:function(response) {
           console.log(idUser);
@@ -404,7 +404,7 @@ function cargarItem(idItem){
     $.ajax({
         dataType: 'json', 
         data: {id:idOrden},
-        url:"http://localhost:8080/api/order/all",
+        url:"http://168.138.143.61:8080/api/order/all",
         type:'GET',
         success:function(response) {
           console.log(idOrden);
@@ -441,7 +441,7 @@ function borrarUser(id1) {
     $.ajax({
         dataType: 'json',
         data: dataToSend,
-        url: "http://localhost:8080/api/user/" + id1,
+        url: "http://168.138.143.61/:8080/api/user/" + id1,
         type: 'DELETE',
         contentType: "application/JSON",
         success: function (response) {
@@ -467,7 +467,7 @@ function borrarItem(reference) {
     $.ajax({
         dataType: 'json',
         data: dataToSend,
-        url: "http://localhost:8080/api/chocolate/" + reference,
+        url: "http://168.138.143.61:8080/api/chocolate/" + reference,
         type: 'DELETE',
         contentType: "application/JSON",
         success: function (response) {
@@ -495,7 +495,7 @@ function borrarPedido(id3) {
     $.ajax({
         dataType: 'json',
         data: dataToSend,
-        url: "http://localhost:8080/api/order/" + id3,
+        url: "http://168.138.143.61:8080/api/order/" + id3,
         type: 'DELETE',
         contentType: "application/JSON",
         success: function (response) {

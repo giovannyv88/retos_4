@@ -6,6 +6,7 @@
 package Reto2_c4.Interfaces;
 
 import Reto2_c4.Modelos.TablaProducto;
+import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
@@ -13,5 +14,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @author Giovanny Vanegas
  */
 public interface itemInterfaz extends MongoRepository<TablaProducto, String>{
+    
+    public List<TablaProducto> findByPriceLessThanEqual(double salesMan);
+    
+    public List<TablaProducto>  findByDescriptionLikeIgnoreCase(String description);
     
 }
