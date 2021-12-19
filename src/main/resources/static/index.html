@@ -19,19 +19,15 @@
         <img src="/logo.png" alt="Chocolate" width="200px">
         <h4>Login</h4><br>
 
-          <form>
-           <div class="mb-3">
-              <input type="email"  class="form-control" id="email" placeholder="Correo electronico">
-            
-          </div>
+        <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Correo Electronico" id="correo" name="correo" required >
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña" id="pass" name="pass" required >
+        </div>
 
-          <div class="mb-3">
-              <input type="password" class="form-control" placeholder="Contraseña" id="password">
-          </div>
+        <button onclick="login()" type="button"  class="btn btn-primary btn-lg">Ingresar</button><br><br>
 
-          <button onclick="login()" class="btn btn-primary btn-lg">Ingresar</button><br><br><br>
-          
-        </form><br>
 
           
           <h6>¿No tienes una cuenta? <a href="/registro.html">Crea tu cuenta aqui</a></h6>

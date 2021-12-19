@@ -106,13 +106,13 @@ function mostrarItem(respuesta){
     let myTable = "<table class='table table-striped table-dark'>"
     myTable+="<h3>Productos en base de datos</h3>"
     myTable += "<tr>";
-    myTable += "<td>Referencia</td>";
-    myTable += "<td>Categoria</td>";
-    myTable += "<td>Descripción</td>";
-    myTable += "<td>Disponibilidad</td>";
-    myTable += "<td>Precio item</td>";
-    myTable += "<td>Cantidad</td>";
-    myTable += "<td>Fotografia</td>";
+    myTable += "<th>Referencia</th>";
+    myTable += "<th>Categoria</th>";
+    myTable += "<th>Descripción</th>";
+    myTable += "<th>Disponibilidad</th>";
+    myTable += "<th>Precio item</th>";
+    myTable += "<th>Cantidad</th>";
+    myTable += "<th>Fotografia</th>";
     "</tr>";
     for (i = 0; i <respuesta.length; i++) {
         myTable += "<tr>";
@@ -123,9 +123,9 @@ function mostrarItem(respuesta){
         myTable += "<td>" + respuesta[i].price + "</td>";
         myTable += "<td>" + respuesta[i].quantity + "</td>";
         myTable += "<td>" + respuesta[i].photography + "</td>";
-        myTable += '<td><button class = "btn btn-danger" onclick="borrarItem(' + respuesta[i].id + ')">Borrar</button></td>';
+        myTable += '<td><button class = "btn btn-danger" onclick="borrarItem(' + respuesta[i].reference + ')">Borrar</button></td>';
         myTable += '<td><button class = "btn btn-info" onclick="cargarItem(' + respuesta[i].id + ')">Cargar</button></td>';
-        myTable += '<td><button class = "btn btn-warning" onclick="actualizarItem(' + respuesta[i].id + ')">Actualizar</button></td>';
+        myTable += '<td><button class = "btn btn-warning" onclick="actualizarItem(' + respuesta[i].reference + ')">Actualizar</button></td>';
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -136,16 +136,14 @@ function mostrarItem(respuesta){
 
 ////Funcion guardar pedidos//////
 
-function guardarPedido(){
+function guardarOrden(){
     let datos={
         id:$("#id3").val(),
         registerDay:$("#registro").val(),
         status:$("#estado").val(),
         salesMan:$("#manSale").val(),
-        price:$("#precio").val(),
         products:$("#item2").val(),
-        quantities:$("#cantItem").val()
-        
+        quantities:$("cantItem").val()   
     };
 
     $.ajax({
@@ -153,12 +151,13 @@ function guardarPedido(){
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
         data: JSON.stringify(datos),
-        url:"http://168.138.143.61/api/order/new",
+        url:"http://168.138.143.61:8080/api/order/new",
        
         
         success:function(response) {
             console.log(response);
-            alert("Orden de pedido guardada");
+            console.log("Se guardo correctamente");
+            alert("Pedido guardado");
             window.location.reload();
     
         },
@@ -167,8 +166,6 @@ function guardarPedido(){
               
             alert("Ocurrio un error inesperado");
             window.location.reload()
-    
-    
         }
         });
 
@@ -211,7 +208,7 @@ function mostrarPedido(respuesta){
         myTable += "<td>" + respuesta[i].products + "</td>";
         myTable += "<td>" + respuesta[i].quantities + "</td>";
         myTable += '<td><button class = "btn btn-danger" onclick="borrarPedido(' + respuesta[i].id + ')">Borrar</button></td>';
-        myTable += '<td><button class = "btn btn-info" onclick="cargarOrden('+ respuesta[i].id + ')">Editar</button></td>';
+        myTable += '<td><button class = "btn btn-info" onclick="cargarOrden('+ respuesta[i].id + ')">Cargar</button></td>';
         myTable += '<td><button class = "btn btn-warning" onclick="actualizarOrden(' + respuesta[i].id + ')">Actualizar</button></td>';
         myTable += "</tr>";
     }
@@ -251,7 +248,6 @@ function actualizarUser(idElemento){
             $("#tel").val("");
             $("#correo").val("");
             $("#pass").val("");
-
             infoUser();
             alert("Usuario actualizado!!!")
             window.location.reload();
@@ -288,7 +284,6 @@ function actualizarItem(idElemento){
             $("#precio").val("");
             $("#cant").val("");
             $("#imagen").val("");
-
             infoItem();
             alert("Item actualizado!!!")
             window.location.reload();
@@ -304,7 +299,6 @@ function actualizarOrden(idElemento){
         registerDay:$("#registro").val(),
         status:$("#estado").val(),
         salesMan:$("#manSale").val(),
-        price:$("#precio").val(),
         products:$("#item2").val(),
         quantities:$("#cantItem").val()
         
@@ -441,7 +435,7 @@ function borrarUser(id1) {
     $.ajax({
         dataType: 'json',
         data: dataToSend,
-        url: "http://168.138.143.61/:8080/api/user/" + id1,
+        url: "http://168.138.143.61:8080/api/user/" + id1,
         type: 'DELETE',
         contentType: "application/JSON",
         success: function (response) {
@@ -458,29 +452,28 @@ function borrarUser(id1) {
 }
 
 function borrarItem(reference) {
-    var element = {
-        id: reference
-    }
-    
-    var dataToSend = JSON.stringify(element);
-
-    $.ajax({
-        dataType: 'json',
-        data: dataToSend,
-        url: "http://168.138.143.61:8080/api/chocolate/" + reference,
-        type: 'DELETE',
-        contentType: "application/JSON",
-        success: function (response) {
-            console.log(response);
-            $("#tablaItem").empty();
-
-            alert("Item eliminado!")
-        },
-
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert("Problemas al borrar item")
-        }
-    });
+    console.log(reference);
+    let elemento={
+        id:reference
+      };
+      let dataToSend=JSON.stringify(elemento);
+      //JSON= JavaScript Object Notation
+      $.ajax({
+            dataType:'json',
+            data:dataToSend,
+            url:"http://168.138.143.61:8080/api/chocolate/"+ reference,
+            type:'DELETE',
+            contentType:'application/json',
+            success:function(response) {
+                $("#tablaItem").empty();
+                 alert("El item se ha eliminado!")
+                console.log(response);
+      
+            },
+         error: function(jqXHR, textStatus, errorThrown) {
+            }
+        });
+      
 }
 
 
