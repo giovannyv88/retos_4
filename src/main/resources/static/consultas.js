@@ -204,9 +204,6 @@ function mostrarPedido(respuesta){
         myTable += "<td>" + respuesta[i].id + "</td>";
         myTable += "<td>" + respuesta[i].registerDay + "</td>";
         myTable += "<td>" + respuesta[i].status + "</td>";
-        myTable += "<td>" + respuesta[i].salesMan + "</td>";
-        myTable += "<td>" + respuesta[i].products + "</td>";
-        myTable += "<td>" + respuesta[i].quantities + "</td>";
         myTable += '<td><button class = "btn btn-danger" onclick="borrarPedido(' + respuesta[i].id + ')">Borrar</button></td>';
         myTable += '<td><button class = "btn btn-info" onclick="cargarOrden('+ respuesta[i].id + ')">Cargar</button></td>';
         myTable += '<td><button class = "btn btn-warning" onclick="actualizarOrden(' + respuesta[i].id + ')">Actualizar</button></td>';
